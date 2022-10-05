@@ -18,5 +18,9 @@ interface RestfulAPIFilm {
     fun deleteFilm(@Path("id") id : Int) : Call<Int>
 
     @POST("film")
-    fun postFilm(@Body film : Film) : Call<RestponseDataFilmItem>
+    fun addFilm(@Body film : Film) : Call<RestponseDataFilmItem>
+
+    @PUT("film/{id}")
+    fun updateFilm(@Path ("id") id : Int, @Body film : Film) : Call<List<RestponseDataFilmItem>>
+
 }

@@ -3,6 +3,7 @@ package com.example.api_project_group.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.api_project_group.model.Film
+import com.example.api_project_group.model.PutFilmResponse
 import com.example.api_project_group.model.RestponseDataFilmItem
 import com.example.api_project_group.network.RetrofitFilm
 import kotlinx.coroutines.GlobalScope
@@ -15,13 +16,14 @@ class ViewModelFilm : ViewModel() {
 
     var liveDataFilm : MutableLiveData<List<RestponseDataFilmItem>>
     var deleteFilm : MutableLiveData<Int>
+    var updateFilm : MutableLiveData<List<RestponseDataFilmItem>>
     lateinit var addFilm : MutableLiveData<RestponseDataFilmItem>
     var loading = MutableLiveData<Boolean>()
 
     init {
         liveDataFilm = MutableLiveData()
         addFilm = MutableLiveData()
-//        updLDcar = MutableLiveData()
+        updateFilm = MutableLiveData()
         deleteFilm = MutableLiveData()
         callApiFilm()
     }
@@ -33,9 +35,14 @@ class ViewModelFilm : ViewModel() {
         return deleteFilm
     }
 
-    fun postDataFilm() : MutableLiveData<RestponseDataFilmItem>{
+    fun addDataFilm() : MutableLiveData<RestponseDataFilmItem>{
         return addFilm
     }
+
+    fun updateDataFilm() : MutableLiveData<List<RestponseDataFilmItem>>{
+        return updateFilm
+    }
+
 
     fun callApiFilm(){
         GlobalScope.async {
@@ -111,8 +118,8 @@ class ViewModelFilm : ViewModel() {
         }
     }
 
-    fun postApiCar(name : String, director : String, image : String, description : String){
-        RetrofitFilm.instance.postFilm(Film(name, director, image, description ))
+    fun callAddFilm(name : String, director : String, image : String, description : String){
+        RetrofitFilm.instance.addFilm(Film(name, director, image, description ))
             .enqueue(object : Callback<RestponseDataFilmItem>{
                 override fun onResponse(
                     call: Call<RestponseDataFilmItem>,
@@ -123,10 +130,35 @@ class ViewModelFilm : ViewModel() {
                     }else{
                         addFilm.postValue(null)
                     }
+                    callApiFilm()
                 }
 
                 override fun onFailure(call: Call<RestponseDataFilmItem>, t: Throwable) {
                     addFilm.postValue(null)
+                    callApiFilm()
+                }
+
+            })
+    }
+
+    fun callUpdateFilm(id : Int, name : String, director : String, image : String, description : String){
+        RetrofitFilm.instance.updateFilm(id, Film(name, director, image, description))
+            .enqueue(object : Callback<List<RestponseDataFilmItem>>{
+                override fun onResponse(
+                    call: Call<List<RestponseDataFilmItem>>,
+                    response: Response<List<RestponseDataFilmItem>>
+                ) {
+                    if (response.isSuccessful){
+                        updateFilm.postValue(response.body())
+                    }else{
+                        updateFilm.postValue(null)
+                    }
+                    callApiFilm()
+                }
+
+                override fun onFailure(call: Call<List<RestponseDataFilmItem>>, t: Throwable) {
+                    updateFilm.postValue(null)
+                    callApiFilm()
                 }
 
             })
