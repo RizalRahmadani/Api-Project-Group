@@ -39,8 +39,8 @@ class AddFilmActivity : AppCompatActivity() {
 
 
         val viewModel = ViewModelProvider(this).get(ViewModelFilm::class.java)
-        viewModel.postApiCar(name, director, image, description)
-        viewModel.postDataFilm().observe(this, Observer {
+        viewModel.callAddFilm(name, director, image, description)
+        viewModel.addDataFilm().observe(this, Observer {
             if (it != null){
                 Toast.makeText(this, "Add Data Successfull", Toast.LENGTH_SHORT).show()
                 Log.d("addfilm", it.toString())
