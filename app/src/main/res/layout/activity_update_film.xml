@@ -22,7 +22,7 @@
             android:id="@+id/nameEdit_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name of Film"/>
+            android:hint="@string/titleFilm"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -38,7 +38,7 @@
             android:id="@+id/directorEdit_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Director"/>
+            android:hint="@string/dirFilm"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -54,7 +54,7 @@
             android:id="@+id/pictureEdit_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Image Link"/>
+            android:hint="@string/pictFilm"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +70,7 @@
             android:id="@+id/descEdit_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"/>
+            android:hint="@string/desFilm"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -78,8 +78,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Update Film"
+        android:text="@string/btnUpdate"
         app:icon="@drawable/ic_edit"
         style="@style/Widget.MaterialComponents.Button.Icon" />
+
+    <Button
+        android:id="@+id/btnEng"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="ENG" />
+
+    <Button
+        android:id="@+id/btnIna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="INA" />
+
+
 
 </LinearLayout>

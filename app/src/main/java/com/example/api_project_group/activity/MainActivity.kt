@@ -3,6 +3,7 @@ package com.example.api_project_group.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -25,18 +26,22 @@ class MainActivity : AppCompatActivity() {
 
         binding.mainToolbar.setTitle("Kumpulan Film")
 
-        setVmToAdapter()
-
         binding.addButton.setOnClickListener {
             startActivity(Intent(this, AddFilmActivity::class.java))
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setVmToAdapter()
     }
 
     private fun setVmToAdapter() {
         val viewModel =ViewModelProvider(this).get(ViewModelFilm::class.java)
 
         viewModel.getliveDataFilm().observe(this, Observer {
-            filmAdapter = AdapterFilm(it)
+
+            Log.d("response", "setVmToAdapter: " + it.toString())
 
             viewModel.loading.observe(this, Observer {
                 when(it){

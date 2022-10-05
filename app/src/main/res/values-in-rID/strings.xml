@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Api-Project-Group</string>
+    <string name="text_item_name">Motion Graphic: 3 Cara Istiqomah dalam Berhijrah - Ustadz Muhammad Nuzul Dzikri, Lc</string>
+    <string name="text_item_date">Date : 2022–10-03T03:36:48.089Z</string>
+    <string name="titleFilm">Nama Film</string>
+    <string name="dirFilm">Sutradara</string>
+    <string name="pictFilm">Tautan Gambar</string>
+    <string name="desFilm">Deskripsi</string>
+    <string name="btnUpdate">Perbaharui Film</string>
+</resources>

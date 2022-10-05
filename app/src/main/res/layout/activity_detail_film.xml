@@ -30,23 +30,64 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Motion Graphic: 3 Cara Istiqomah dalam Berhijrah - Ustadz Muhammad Nuzul Dzikri, Lc"
+        android:text="Harry Potter : Goblet Of Fire"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/dirTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="16dp"
+        android:text="Sutradara : "
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameFilm" />
+
+    <TextView
+        android:id="@+id/dirFilm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="JK Rowling"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toEndOf="@+id/dirTitle"
+        app:layout_constraintTop_toBottomOf="@+id/nameFilm" />
+
+    <TextView
+        android:id="@+id/sinopsisTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Sinopsis :"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dirTitle" />
+
+    <TextView
+        android:id="@+id/sinopsisFilm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Harry Potter and the Goblet of Fire adalah novel fantasi yang ditulis oleh penulis Inggris JK Rowling dan novel keempat dalam seri Harry Potter . Ini mengikuti Harry Potter , seorang penyihir di tahun keempatnya di Sekolah Sihir Hogwarts , dan misteri seputar masuknya nama Harry ke dalam Turnamen Triwizard, di mana ia dipaksa untuk bersaing."
+        android:textAlignment="center"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sinopsisTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
