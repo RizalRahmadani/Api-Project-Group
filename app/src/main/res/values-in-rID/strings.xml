@@ -8,4 +8,5 @@
     <string name="pictFilm">Tautan Gambar</string>
     <string name="desFilm">Deskripsi</string>
     <string name="btnUpdate">Perbaharui Film</string>
+    <string name="txt_logout">Keluar</string>
 </resources>

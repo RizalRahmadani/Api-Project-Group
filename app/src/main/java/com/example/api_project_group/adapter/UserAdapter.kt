@@ -25,7 +25,7 @@ class UserAdapter(var listUser : List<ResponseDataUserItem>): RecyclerView.Adapt
         var inputUsername = holder.binding.editUsernameLog.text.toString()
         var inputPass = holder.binding.editPasswordLog.text.toString()
 
-        /*if(username.equals(inputUsername) && pass.equals(inputPass)) {
+        /* if(username.equals(inputUsername) && pass.equals(inputPass)) {
             Toast.makeText(LoginActivity(), "Username ${username} inputusername ${inputUsername}", Toast.LENGTH_LONG).show()
             val it = LoginActivity()
             var pindah = Intent(it, LoginActivity::class.java)

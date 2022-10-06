@@ -1,6 +1,8 @@
 package com.example.api_project_group.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,16 +20,30 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var filmAdapter: AdapterFilm
+    lateinit var sharedpref : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedpref = this.getSharedPreferences("dataUser", Context.MODE_PRIVATE)
+
         binding.mainToolbar.setTitle("Kumpulan Film")
 
         binding.addButton.setOnClickListener {
             startActivity(Intent(this, AddFilmActivity::class.java))
+        }
+
+        binding.txtLogout.setOnClickListener{
+            //add ke sharedpref
+            var addUser = sharedpref.edit()
+            addUser.putString("username", "")
+            addUser.putString("password", "")
+            addUser.apply()
+
+            var pinda = Intent(this, LoginActivity::class.java)
+            startActivity(pinda)
         }
     }
 

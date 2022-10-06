@@ -7,4 +7,5 @@
     <string name="pictFilm">Image Link</string>
     <string name="desFilm">Description</string>
     <string name="btnUpdate">Update Film</string>
+    <string name="txt_logout">Logout</string>
 </resources>
